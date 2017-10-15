@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>美女图片秀</title>
+    <script src="/static/jquery.js" type="application/javascript"></script>
+    <link rel="stylesheet" href="/static/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/static/bootstrap-theme.min.css" type="text/css"/>
+    <script type="application/javascript">
+
+$.get("/api/beautifulGirl/girl/",function (data) {
+
+        for(var g in data){
+            $("#row").append("<div class='col-lg-4 col-xs-4 col-sm-4'> <img src='"+data[g].ImageUrl+"'  alt='' width='179px' height='267px'/> </div>");
+        }
+}
+    )
+
+
+
+</script>
+    <link rel="stylesheet" href="/static/index.css" type="text/css"/>
+    <script src="/static/wySilder.min.js" type="application/javascript"></script>
+    <script src="/static/bootstrap.min.js" type="application/javascript"></script>
+</head>
+<body>
+
+<div id="row" class="row">
+
+</div>
+
+
+
+
+</body>
+</html>
