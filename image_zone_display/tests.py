@@ -28,39 +28,34 @@ class ImageTese(TestCase):
         images_item=Image()
         ##count=images_item.objects.count()
 
-        print("=======开始插入记录==========")
+        logger.info("=======开始插入记录==========")
         images_item.insert_image(title,url,description)
         # images_item.image_url=url
         # images_item.image_title=title
         # images_item.image_description=description
         # images_item.save()
-        print("=======记录增加成功！==========")
+        logger.info("=======记录增加成功！==========")
 
-
-        print("=======查询id为1的记录==========")
+        logger.info("=======查询id为1的记录==========")
         item = Image.objects.get(id=1)
-        print("title:" + item.image_title)
-        print("=======查询成功==========")
+        logger.info("title:" + item.image_title)
+        logger.info("=======查询成功==========")
 
-        print("=======开始修改记录==========")
+        logger.info("=======开始修改记录==========")
 
         flag=images_item.update_image_by_id(1,"美女张馥棋写真图","","")
         if(flag):
-            print("=======修改记录成功==========")
+            logger.info("=======修改记录成功==========")
 
         item = Image.objects.get(id=1)
-        print("title:" + item.image_title)
+        logger.info("title:" + item.image_title)
 
-        print("=======开始删除记录==========")
+        logger.info("=======开始删除记录==========")
         is_delete=images_item.delete_image(1)
         if(is_delete):
-            print("=======删除记录成功==========")
+            logger.info("=======删除记录成功==========")
 
         self.assertEqual(images_item.image_title,"中国性感高挑美女张馥棋写真图")
+
     def tearDown(self):
-        print("==========image测试完成=====")
-#删
-
-#改
-
-#查
+        logger.info("==========image测试完成=====")
